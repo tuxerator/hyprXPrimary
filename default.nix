@@ -1,6 +1,7 @@
 { lib
 , hyprland
 , hyprlandPlugins
+, pkgs
 ,
 }:
 hyprlandPlugins.mkHyprlandPlugin hyprland {
@@ -8,6 +9,9 @@ hyprlandPlugins.mkHyprlandPlugin hyprland {
   version = "0.1";
   src = ./.;
 
+  buildInputs = with pkgs; [
+    xorg.xrandr
+  ];
 
   inherit (hyprland) nativeBuildInputs;
 
